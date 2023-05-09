@@ -4,23 +4,23 @@ Created on Mon Apr 24 15:37:35 2023
 
 @author: User
 """
-# Import CSV file
-import csv
-
-# Read input data
-import csv
+# Import Statements
 import pandas as pd
 
-url = 'https://raw.githubusercontent.com/DanielINCE/ABM5/main/in.txt'
-df = pd.read_csv(url,index_col=0)
-#df = pd.read_csv(url)
+# Import Geology
+df = pd.read_csv("https://raw.githubusercontent.com/DanielINCE/Assignment-2/main/Data/Geology", sep=" ")
+print(df)
 
-print(df.head(5))
+# Import Population
+df = pd.read_csv("https://raw.githubusercontent.com/DanielINCE/Assignment-2/main/Data/Population", sep=" ")
+print(df)
+
+# Import Transport
+df = pd.read_csv("https://raw.githubusercontent.com/DanielINCE/Assignment-2/main/Data/Transport", sep=" ")
+print(df)
 
 
-# Import IO
-import io 
-environment = io.read_data()
+
 
 
 

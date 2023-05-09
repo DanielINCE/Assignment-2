@@ -2,7 +2,7 @@
 import time
 
 # Import agent framework
-import agentframework as af
+import agentframework
 
 # Variables for constraining movement.
 # The minimum x coordinate.
@@ -46,7 +46,7 @@ n_iterations = 10
 agents = []
 for i in range(n_agents):
     # Create an agent
-    agents.append(af.Agent())
+    agents.append(agentframework.Agent())
     print(agents[i])
 print(agents)
   

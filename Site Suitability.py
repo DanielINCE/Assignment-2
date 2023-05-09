@@ -3,8 +3,9 @@ import random
 import matplotlib.pyplot as plt
 import operator
 import math
-import agentframework as af
 import pandas as pd
+import my_modules.agentframework as agentframework
+import my_modules.io as io
 
 # Set the pseudo-random seed for reproducibility
 random.seed(0)
@@ -172,7 +173,7 @@ def __str__(self):
 agents = []
 for i in range(n_agents):
     # Create an agent
-    agents.append(af.Agent())
+    agents.append(agentframework.Agent())
     print(agents[i])
 print(agents)
 
@@ -182,15 +183,3 @@ class Agent:
         self.x = random.randint(0, 99)
         self.y = random.randint(0, 99)
         
-
-# Import Geology
-df = pd.read_csv("https://raw.githubusercontent.com/DanielINCE/Assignment-2/main/Data/Geology", sep=" ")
-print(df)
-
-# Import Population
-df = pd.read_csv("https://raw.githubusercontent.com/DanielINCE/Assignment-2/main/Data/Population", sep=" ")
-print(df)
-
-# Import Transport
-df = pd.read_csv("https://raw.githubusercontent.com/DanielINCE/Assignment-2/main/Data/Transport", sep=" ")
-print(df)

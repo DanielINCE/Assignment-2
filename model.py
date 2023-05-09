@@ -1,19 +1,11 @@
 # Import statements
-import my_modules.agentframework as af
-import my_modules.io as io 
+import my_modules.agentframework as agentframework
+import my_modules.io as io
+import matplotlib
+matplotlib.use('TkAgg')
 
 # Import time
 import time
-
-# Variables for constraining movement.
-# The minimum x coordinate.
-x_min = 0
-# The minimum y coordinate.
-y_min = 0
-# The maximum x coordinate.
-x_max = 99
-# The maximum y coordinate.
-y_max = 99
 
 # Set the pseudo-random seed for reproducibility
 import random
@@ -29,9 +21,6 @@ print("x0", x0)
 y0 = 0
 print("y0", y0)
 
-# Define variables
-def(n_row, n_col, environment)
-
 # Create a list to store agents
 agents = []
 
@@ -39,6 +28,22 @@ agents = []
 n_agents = 3
 
 n_iterations = 100
+
+# Definitions
+self = agents
+environment = environment = io.read_data()
+n_cols = y0
+n_rows = x0
+
+# Variables for constraining movement.
+# The minimum x coordinate.
+x_min = 0
+# The minimum y coordinate.
+y_min = 0
+# The maximum x coordinate.
+x_max = n_cols - 1
+# The maximum y coordinate.
+y_max = n_rows - 1
 
 # Initialise agents
 agents = []
@@ -201,7 +206,35 @@ if agents[i][0] > x_max:
     agents[i][0] = x_max
 if agents[i][1] > y_max:
     agents[i][1] = y_max
-    
+      
+def __init__(self, i, environment, n_rows, n_cols):
+    """
+    The constructor method.
+
+    Parameters
+    ----------
+    i : Integer
+    To be unique to each instance.
+    environment : List
+    A reference to a shared environment
+    n_rows : Integer
+    The number of rows in environment.
+    n_cols : Integer
+    The number of columns in environment.
+
+    Returns
+    -------
+    None.
+
+    """
+self.i = i
+self.environment = environment
+tnc = int(n_cols / 3)
+self.x = random.randint(tnc - 1, (2 * tnc) - 1)
+tnr = int(n_rows / 3)
+self.y = random.randint(tnr - 1, (2 * tnr) - 1)
+self.store = 0
+
 # Plot environment
 plt.imshow(environment)
 
@@ -215,58 +248,7 @@ y_max = n_rows - 1
 plt.ylim(y_max / 3, y_max * 2 / 3)
 plt.xlim(x_max / 3, x_max * 2 / 3)
 
-# Initialise Agents
-def __init__(self, i, n_rows, n_cols):
-    """
-    The constructor method.
 
-    Parameters
-    ----------
-    i : Integer
-        To be unique to each instance.
-    n_rows : Integer
-        The number of rows in environment.
-    n_cols : Integer
-        The number of columns in environment.
-    Returns
-    -------
-    None.
-    """
-    self.i = i
-    tnc = int(n_cols / 3)
-    self.x = random.randint(tnc - 1, (2 * tnc) - 1)
-    tnr = int(n_rows / 3)
-    self.y = random.randint(tnr - 1, (2 * tnr) - 1)
-
-
-# Define Agents
-def __init__(self, i, environment, n_rows, n_cols):
-"""
-The constructor method.
-
-Parameters
-----------
-i : Integer
-    To be unique to each instance.
-environment : List
-    A reference to a shared environment
-n_rows : Integer
-    The number of rows in environment.
-n_cols : Integer
-    The number of columns in environment.
-
-Returns
--------
-None.
-
-"""
-self.i = i
-self.environment = environment
-tnc = int(n_cols / 3)
-self.x = random.randint(tnc - 1, (2 * tnc) - 1)
-tnr = int(n_rows / 3)
-self.y = random.randint(tnr - 1, (2 * tnr) - 1)
-self.store = 0
 
 # Agent class
 def eat(self):
