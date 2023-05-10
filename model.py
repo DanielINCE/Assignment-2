@@ -1,6 +1,7 @@
 # Import statements
 import my_modules.agentframework as agentframework
 import my_modules.io as io
+import my_modules.geometry as geometry
 import matplotlib
 matplotlib.use('TkAgg')
 
@@ -255,3 +256,31 @@ def eat(self):
     if self.environment[self.y][self.x] >= 10:
         self.environment[self.y][self.x] -= 10
         self.store += 10
+        
+# Main simulation loop
+for ite in range(1, n_iterations + 1):
+    print("Iteration", ite)
+    # Move agents
+    print("Move")
+    for i in range(n_agents):
+        agents[i].move(x_min, y_min, x_max, y_max)
+        agents[i].eat()
+        #print(agents[i])
+    # Share store
+    # Distribute shares
+    for i in range(n_agents):
+        agents[i].share(neighbourhood)
+    # Add store_shares to store and set store_shares back to zero
+    for i in range(n_agents):
+        print(agents[i])
+        agents[i].store = agents[i].store_shares
+        agents[i].store_shares = 0
+    print(agents)
+    # Print the maximum distance between all the agents
+    print("Maximum distance between all the agents", get_max_distance())
+    # Print the total amount of resource
+    sum_as = sum_agent_stores()
+    print("sum_agent_stores", sum_as)
+    sum_e = sum_environment()
+    print("sum_environment", sum_e)
+    print("total resource", (sum_as + sum_e))

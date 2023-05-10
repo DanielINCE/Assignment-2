@@ -1,8 +1,7 @@
-# Import time
+# Import Statements
 import time
-
-# Import agent framework
 import agentframework
+import geometry
 
 # Variables for constraining movement.
 # The minimum x coordinate.
@@ -228,3 +227,21 @@ if agents[i].x > x_max:
     agents[i].x = x_max
 if agents[i].y > y_max:
     agents[i].y = y_max
+    
+# Import geometry module
+def share(self, neighbourhood):
+    # Create a list of agents in neighbourhood
+    neighbours = []
+    #print(self.agents[self.i])
+    for a in self.agents:
+        distance = geometry.get_distance(a.x, a.y, self.x, self.y)
+        if distance < neighbourhood:
+            neighbours.append(a.i)
+    # Calculate amount to share
+    n_neighbours = len(neighbours)
+    #print("n_neighbours", n_neighbours)
+    shares = self.store / n_neighbours
+    #print("shares", shares)
+    # Add shares to store_shares
+    for i in neighbours:
+        self.agents[i].store_shares += shares
