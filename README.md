@@ -39,6 +39,7 @@ model.py: undefined names in the source code. For example: 'neighbourhood', 'get
 site_suitability.py: Module not found error. No module named 'agentframework'. 
 geometry.py: No errors.
 agentframework.py: TypeError: 'Agent' object is not subscriptable.
+io.py: No errors. 
 
 These issues were encountered during development and unfortunately they are unresolved. Therefore, the code does not run as expected and there is no final output. 
 
